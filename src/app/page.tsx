@@ -524,7 +524,7 @@ export default function Home() {
           loop
           playsInline
           preload="metadata"
-          poster="/imagens/brunoarts-hero-bg.png"
+          poster="/assets/brunoarts/brunoarts-hero-bg.png"
           className="hero-motion-bg absolute inset-0 h-full w-full object-cover object-[68%_center] opacity-80 mix-blend-screen"
         >
           <source src="/videos/brunoarts-hero-video.mp4" type="video/mp4" />
@@ -705,8 +705,8 @@ export default function Home() {
         data-services-spotlight
         className="motion-section group/services relative overflow-hidden border-y border-white/10 bg-white/[0.03] px-6 py-24 sm:px-10 lg:px-16"
       >
-        <div className="absolute inset-0 scale-[1.06] bg-[url('/imagens/brunoarts-services-bg.png')] bg-cover bg-center opacity-[0.38] blur-[14px] transition duration-700 ease-out group-hover/services:scale-[1.04] group-hover/services:opacity-[0.56] group-hover/services:blur-[7px]" />
-        <div className="services-spotlight absolute inset-0 scale-[1.04] bg-[url('/imagens/brunoarts-services-bg.png')] bg-cover bg-center opacity-0 blur-[3px] transition duration-500 ease-out group-hover/services:opacity-100" />
+        <div className="absolute inset-0 scale-[1.06] bg-[url('/assets/brunoarts/brunoarts-services-bg.png')] bg-cover bg-center opacity-[0.38] blur-[14px] transition duration-700 ease-out group-hover/services:scale-[1.04] group-hover/services:opacity-[0.56] group-hover/services:blur-[7px]" />
+        <div className="services-spotlight absolute inset-0 scale-[1.04] bg-[url('/assets/brunoarts/brunoarts-services-bg.png')] bg-cover bg-center opacity-0 blur-[3px] transition duration-500 ease-out group-hover/services:opacity-100" />
         <div className="absolute inset-0 bg-[#05030d]/64 backdrop-blur-[1px] transition duration-700 ease-out group-hover/services:bg-[#05030d]/52" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(147,51,234,0.14),transparent_34%),linear-gradient(90deg,rgba(5,3,13,0.76),rgba(5,3,13,0.36),rgba(5,3,13,0.74))]" />
         <div className="relative mx-auto max-w-7xl">
@@ -1203,7 +1203,7 @@ export default function Home() {
         id="contato"
         className="relative flex min-h-[520px] items-center overflow-hidden border-t border-white/10 px-6 py-20 sm:min-h-[560px] sm:px-10 sm:py-24 lg:min-h-[560px] lg:px-16"
       >
-        <div className="contact-bg-base absolute inset-0 bg-[url('/imagens/brunoarts-contact-bg.png')] bg-cover bg-center opacity-[0.42]" />
+        <div className="contact-bg-base absolute inset-0 bg-[url('/assets/brunoarts/brunoarts-contact-bg.png')] bg-cover bg-center opacity-[0.42]" />
         <div className="contact-overlay-primary absolute inset-0" />
         <div className="contact-overlay-depth absolute inset-0" />
         <div className="contact-motion motion-stagger relative z-10 mx-auto max-w-5xl text-center">
