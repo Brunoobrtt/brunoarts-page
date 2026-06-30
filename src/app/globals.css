@@ -150,28 +150,59 @@ body {
 @media (max-width: 767px) {
   .hero-scroll-motion {
     min-height: auto !important;
-    padding: 1.25rem 1rem 1.5rem !important;
+    padding: 1rem 1rem 1.2rem !important;
   }
 
   .hero-scroll-motion #inicio {
-    min-height: clamp(440px, 76vh, 620px) !important;
-    padding-top: 2.75rem !important;
-    padding-bottom: 2.25rem !important;
+    min-height: clamp(390px, 68svh, 520px) !important;
+    padding-top: 2.2rem !important;
+    padding-bottom: 1.8rem !important;
+  }
+
+  .hero-scroll-motion video.hero-motion-bg {
+    opacity: 0.58 !important;
+    filter: brightness(0.7) saturate(1.08);
   }
 
   .hero-motion-title {
-    font-size: clamp(3.4rem, 18vw, 5.8rem) !important;
-    line-height: 0.86 !important;
-    letter-spacing: -0.035em !important;
+    font-size: clamp(3.15rem, 14vw, 4rem) !important;
+    line-height: 0.88 !important;
+    letter-spacing: -0.025em !important;
   }
 
   .hero-motion-content p:first-child {
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.36em;
+    margin-bottom: 1rem;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.3em;
   }
 
   .hero-motion-content p {
     max-width: 34rem;
+  }
+
+  .hero-motion-content > div {
+    margin-top: 1rem !important;
+    gap: 0.55rem !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .hero-motion-content > div span {
+    padding-left: 0.65rem !important;
+  }
+
+  .hero-motion-content > p:nth-of-type(2) {
+    margin-top: 1.25rem !important;
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-motion-content > p:nth-of-type(3) {
+    margin-top: 1.35rem !important;
+    max-width: 19rem;
+    font-size: clamp(1.22rem, 6vw, 1.55rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: 0.07em !important;
   }
 
   .hero-motion-glow {
@@ -199,7 +230,21 @@ body {
   #portfolio,
   #contratar,
   #pacotes {
-    padding: 4rem 1rem !important;
+    padding: 3.45rem 1rem !important;
+  }
+
+  #sobre h2,
+  #servicos h2,
+  #portfolio h2,
+  #contratar h2,
+  #pacotes h2 {
+    font-size: clamp(2.05rem, 9vw, 2.75rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.015em !important;
+  }
+
+  #servicos .mb-12 {
+    margin-bottom: 1.8rem !important;
   }
 
   #servicos {
@@ -217,16 +262,20 @@ body {
   }
 
   .service-motion-card {
-    min-height: 214px !important;
+    min-height: 168px !important;
     border-radius: 20px !important;
-    padding: 1.25rem !important;
+    padding: 1rem !important;
     box-shadow: 0 0 28px rgba(88, 28, 135, 0.12) !important;
     backdrop-filter: blur(12px) !important;
   }
 
+  .service-motion-card .mb-8 {
+    margin-bottom: 0.9rem !important;
+  }
+
   .service-motion-card h3,
   .portfolio-motion-card h3 {
-    font-size: clamp(1.2rem, 6vw, 1.55rem) !important;
+    font-size: clamp(1.08rem, 5.2vw, 1.38rem) !important;
   }
 
   .service-motion-card p,
@@ -237,9 +286,13 @@ body {
   }
 
   .portfolio-motion-card {
-    min-height: 218px !important;
-    padding: 1.25rem !important;
+    min-height: 178px !important;
+    padding: 1rem !important;
     box-shadow: 0 0 30px rgba(88, 28, 135, 0.12) !important;
+  }
+
+  .portfolio-motion-card > button > div:first-child {
+    height: 64% !important;
   }
 
   .portfolio-motion-card:hover,
@@ -258,10 +311,10 @@ body {
   }
 
   .package-motion-card {
-    min-height: 430px !important;
-    flex-basis: 84vw !important;
+    min-height: 386px !important;
+    flex-basis: 80vw !important;
     border-radius: 22px !important;
-    padding: 1.25rem !important;
+    padding: 1rem !important;
     box-shadow: 0 0 30px rgba(88, 28, 135, 0.12) !important;
     backdrop-filter: blur(12px) !important;
   }
@@ -272,20 +325,36 @@ body {
   }
 
   .package-motion-card h3 {
-    font-size: clamp(1.22rem, 5.8vw, 1.55rem) !important;
+    font-size: clamp(1.08rem, 5.1vw, 1.34rem) !important;
   }
 
   .package-motion-card strong {
-    font-size: clamp(2rem, 10vw, 2.45rem) !important;
+    font-size: clamp(1.8rem, 8.6vw, 2.18rem) !important;
   }
 
   .package-motion-card ul {
-    margin-top: 1.25rem !important;
-    padding-bottom: 1.25rem !important;
+    margin-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    row-gap: 0.55rem !important;
+  }
+
+  .package-motion-card li + li {
+    margin-top: 0.55rem !important;
+  }
+
+  .package-motion-card p {
+    min-height: auto !important;
+    margin-top: 0.85rem !important;
+    font-size: 0.82rem !important;
   }
 
   .package-motion-card li {
-    font-size: 0.84rem !important;
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .package-motion-card [class*="mt-5"] {
+    margin-top: 1rem !important;
   }
 
   .package-button-motion,
@@ -310,17 +379,25 @@ body {
   }
 
   [role="dialog"] video {
-    max-height: 74svh;
+    max-height: 70svh;
+  }
+
+  [aria-label="Galeria Web Design"] video {
+    max-height: 50svh;
+  }
+
+  [aria-label="Galeria Direção Visual e Branding"] [class*="aspect-"] {
+    max-height: 64svh;
   }
 
   #contato {
-    min-height: 470px !important;
-    padding: 4rem 1rem !important;
+    min-height: 430px !important;
+    padding: 3.35rem 1rem !important;
   }
 
   #contato h2 {
-    font-size: clamp(2rem, 10vw, 3.35rem) !important;
-    line-height: 0.96 !important;
+    font-size: clamp(1.9rem, 8.6vw, 2.55rem) !important;
+    line-height: 1 !important;
   }
 
   #contato p:not(:first-child) {
@@ -337,8 +414,8 @@ body {
 
 @media (max-width: 479px) {
   .package-motion-card {
-    flex-basis: 86vw !important;
-    min-height: 420px !important;
+    flex-basis: 82vw !important;
+    min-height: 382px !important;
   }
 
   #pacotes .motion-reveal-up h2,
@@ -346,13 +423,17 @@ body {
   #servicos h2,
   #contratar h2,
   #sobre h2 {
-    font-size: clamp(2rem, 10vw, 3rem) !important;
+    font-size: clamp(1.9rem, 9vw, 2.55rem) !important;
     line-height: 1 !important;
   }
 
   .portfolio-motion-card,
   .service-motion-card {
-    min-height: 204px !important;
+    min-height: 164px !important;
+  }
+
+  .hero-motion-title {
+    font-size: clamp(3rem, 14vw, 3.72rem) !important;
   }
 }
 

@@ -538,21 +538,17 @@ export default function Home() {
         className="hero-scroll-motion relative min-h-screen overflow-hidden bg-[#05030d] px-6 py-7 sm:px-10 lg:px-12 xl:px-14"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(88,28,135,0.48),transparent_28%),radial-gradient(circle_at_78%_18%,rgba(219,39,119,0.32),transparent_30%),radial-gradient(circle_at_72%_76%,rgba(37,99,235,0.32),transparent_35%),linear-gradient(135deg,#05030d_0%,#10051f_42%,#020617_100%)]" />
-        {isMobileViewport ? (
-          <div className="hero-motion-bg absolute inset-0 h-full w-full bg-[url('/assets/brunoarts/brunoarts-hero-bg.png')] bg-cover bg-[68%_center] opacity-70 mix-blend-screen" />
-        ) : (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/assets/brunoarts/brunoarts-hero-bg.png"
-            className="hero-motion-bg absolute inset-0 h-full w-full object-cover object-[68%_center] opacity-80 mix-blend-screen"
-          >
-            <source src="/videos/brunoarts-hero-video.mp4" type="video/mp4" />
-          </video>
-        )}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/assets/brunoarts/brunoarts-hero-bg.png"
+          className="hero-motion-bg absolute inset-0 h-full w-full object-cover object-[68%_center] opacity-80 mix-blend-screen"
+        >
+          <source src="/videos/brunoarts-hero-video.mp4" type="video/mp4" />
+        </video>
         <div className="hero-motion-sheen absolute inset-y-[-20%] left-[18%] w-[36vw] rotate-12 bg-[linear-gradient(90deg,transparent,rgba(217,70,239,0.16),rgba(96,165,250,0.08),transparent)] blur-3xl" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#05030d_0%,rgba(5,3,13,0.92)_14%,rgba(5,3,13,0.58)_34%,rgba(5,3,13,0.12)_62%,rgba(5,3,13,0.34)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_45%,rgba(217,70,239,0.12),transparent_34%),radial-gradient(circle_at_84%_56%,rgba(59,130,246,0.18),transparent_42%)]" />
