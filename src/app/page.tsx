@@ -1250,10 +1250,12 @@ export default function Home() {
             mais clara, profissional e memorável.
           </p>
           <a
-            href="mailto:Brunoarts@gmail.com"
+            href="https://wa.me/5551994514083?text=Ol%C3%A1%2C%20Bruno%21%20Quero%20saber%20mais%20sobre%20seus%20servi%C3%A7os."
+            target="_blank"
+            rel="noopener noreferrer"
             className="contact-button-motion contact-reveal motion-reveal motion-reveal-up mt-10 inline-flex rounded-full bg-white px-8 py-4 text-sm font-black uppercase tracking-[0.2em] text-black transition hover:bg-fuchsia-100"
           >
-            Brunoarts@gmail.com
+            Entre em contato
           </a>
         </div>
       </section>

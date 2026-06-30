@@ -233,6 +233,11 @@ body {
     padding: 3.45rem 1rem !important;
   }
 
+  #pacotes {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+
   #sobre h2,
   #servicos h2,
   #portfolio h2,
@@ -304,6 +309,7 @@ body {
   .packages-track {
     margin-left: -1rem;
     margin-right: -1rem;
+    margin-top: 1.8rem !important;
     padding-left: 1rem;
     padding-right: 1rem;
     scroll-padding-inline: 1rem;
@@ -311,10 +317,10 @@ body {
   }
 
   .package-motion-card {
-    min-height: 386px !important;
-    flex-basis: 80vw !important;
-    border-radius: 22px !important;
-    padding: 1rem !important;
+    min-height: 348px !important;
+    flex-basis: 78vw !important;
+    border-radius: 20px !important;
+    padding: 0.85rem !important;
     box-shadow: 0 0 30px rgba(88, 28, 135, 0.12) !important;
     backdrop-filter: blur(12px) !important;
   }
@@ -325,39 +331,49 @@ body {
   }
 
   .package-motion-card h3 {
-    font-size: clamp(1.08rem, 5.1vw, 1.34rem) !important;
+    font-size: clamp(1rem, 4.7vw, 1.22rem) !important;
   }
 
   .package-motion-card strong {
-    font-size: clamp(1.8rem, 8.6vw, 2.18rem) !important;
+    font-size: clamp(1.58rem, 7.6vw, 1.95rem) !important;
   }
 
   .package-motion-card ul {
-    margin-top: 1rem !important;
-    padding-bottom: 1rem !important;
-    row-gap: 0.55rem !important;
+    margin-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    row-gap: 0.42rem !important;
   }
 
   .package-motion-card li + li {
-    margin-top: 0.55rem !important;
+    margin-top: 0.42rem !important;
   }
 
   .package-motion-card p {
     min-height: auto !important;
-    margin-top: 0.85rem !important;
-    font-size: 0.82rem !important;
+    margin-top: 0.65rem !important;
+    font-size: 0.76rem !important;
   }
 
   .package-motion-card li {
-    font-size: 0.78rem !important;
-    line-height: 1.45 !important;
+    font-size: 0.73rem !important;
+    line-height: 1.36 !important;
   }
 
   .package-motion-card [class*="mt-5"] {
-    margin-top: 1rem !important;
+    margin-top: 0.75rem !important;
   }
 
-  .package-button-motion,
+  .package-motion-card [class*="mb-5"] {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .package-button-motion {
+    height: 2.75rem !important;
+    min-height: 2.75rem;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.12em !important;
+  }
+
   .contact-button-motion {
     min-height: 3rem;
     font-size: 0.7rem !important;
@@ -414,8 +430,8 @@ body {
 
 @media (max-width: 479px) {
   .package-motion-card {
-    flex-basis: 82vw !important;
-    min-height: 382px !important;
+    flex-basis: 80vw !important;
+    min-height: 344px !important;
   }
 
   #pacotes .motion-reveal-up h2,
