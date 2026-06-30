@@ -19,6 +19,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--background);
+  overflow-x: hidden;
 }
 
 body {
@@ -26,6 +27,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  width: 100%;
 }
 
 [data-services-spotlight] {
@@ -120,6 +122,238 @@ body {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.packages-track {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  #servicos,
+  #portfolio,
+  #contratar,
+  #pacotes {
+    padding-top: 4.75rem;
+    padding-bottom: 4.75rem;
+  }
+
+  .service-motion-card {
+    min-height: 240px;
+  }
+
+  .package-motion-card {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-scroll-motion {
+    min-height: auto !important;
+    padding: 1.25rem 1rem 1.5rem !important;
+  }
+
+  .hero-scroll-motion #inicio {
+    min-height: clamp(440px, 76vh, 620px) !important;
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+
+  .hero-motion-title {
+    font-size: clamp(3.4rem, 18vw, 5.8rem) !important;
+    line-height: 0.86 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  .hero-motion-content p:first-child {
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.36em;
+  }
+
+  .hero-motion-content p {
+    max-width: 34rem;
+  }
+
+  .hero-motion-glow {
+    opacity: 0.46 !important;
+  }
+
+  .hero-motion-sheen {
+    opacity: 0.24 !important;
+    filter: blur(22px);
+  }
+
+  .hero-motion-chips {
+    gap: 0.5rem !important;
+    padding-bottom: 0 !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .hero-motion-chips > * {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  #sobre,
+  #servicos,
+  #portfolio,
+  #contratar,
+  #pacotes {
+    padding: 4rem 1rem !important;
+  }
+
+  #servicos {
+    background-color: rgba(255, 255, 255, 0.025);
+  }
+
+  #servicos > .absolute:first-child {
+    opacity: 0.32 !important;
+    filter: blur(8px) brightness(0.8) !important;
+    transform: scale(1.035) !important;
+  }
+
+  .services-spotlight {
+    display: none;
+  }
+
+  .service-motion-card {
+    min-height: 214px !important;
+    border-radius: 20px !important;
+    padding: 1.25rem !important;
+    box-shadow: 0 0 28px rgba(88, 28, 135, 0.12) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+
+  .service-motion-card h3,
+  .portfolio-motion-card h3 {
+    font-size: clamp(1.2rem, 6vw, 1.55rem) !important;
+  }
+
+  .service-motion-card p,
+  .portfolio-motion-card span,
+  #pacotes p,
+  #pacotes li {
+    line-height: 1.6 !important;
+  }
+
+  .portfolio-motion-card {
+    min-height: 218px !important;
+    padding: 1.25rem !important;
+    box-shadow: 0 0 30px rgba(88, 28, 135, 0.12) !important;
+  }
+
+  .portfolio-motion-card:hover,
+  .package-motion-card:hover,
+  .service-motion-card:hover {
+    transform: none !important;
+  }
+
+  .packages-track {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    scroll-padding-inline: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .package-motion-card {
+    min-height: 430px !important;
+    flex-basis: 84vw !important;
+    border-radius: 22px !important;
+    padding: 1.25rem !important;
+    box-shadow: 0 0 30px rgba(88, 28, 135, 0.12) !important;
+    backdrop-filter: blur(12px) !important;
+  }
+
+  .package-motion-card:nth-child(2) {
+    animation: none !important;
+    scale: 1 !important;
+  }
+
+  .package-motion-card h3 {
+    font-size: clamp(1.22rem, 5.8vw, 1.55rem) !important;
+  }
+
+  .package-motion-card strong {
+    font-size: clamp(2rem, 10vw, 2.45rem) !important;
+  }
+
+  .package-motion-card ul {
+    margin-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .package-motion-card li {
+    font-size: 0.84rem !important;
+  }
+
+  .package-button-motion,
+  .contact-button-motion {
+    min-height: 3rem;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  [role="dialog"] {
+    padding: 1rem !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  [role="dialog"] > div {
+    max-width: 92vw !important;
+    max-height: 92svh !important;
+    border-radius: 22px !important;
+    padding: 1rem !important;
+    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(14px) !important;
+  }
+
+  [role="dialog"] video {
+    max-height: 74svh;
+  }
+
+  #contato {
+    min-height: 470px !important;
+    padding: 4rem 1rem !important;
+  }
+
+  #contato h2 {
+    font-size: clamp(2rem, 10vw, 3.35rem) !important;
+    line-height: 0.96 !important;
+  }
+
+  #contato p:not(:first-child) {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .contact-bg-base {
+    opacity: 0.4;
+    filter: blur(1.25px) brightness(0.68) saturate(1.08);
+    transform: translateZ(0) scale(1.018);
+  }
+}
+
+@media (max-width: 479px) {
+  .package-motion-card {
+    flex-basis: 86vw !important;
+    min-height: 420px !important;
+  }
+
+  #pacotes .motion-reveal-up h2,
+  #portfolio h2,
+  #servicos h2,
+  #contratar h2,
+  #sobre h2 {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+    line-height: 1 !important;
+  }
+
+  .portfolio-motion-card,
+  .service-motion-card {
+    min-height: 204px !important;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -123,6 +123,7 @@ const packages = [
 ];
 
 export default function Home() {
+  const [isMobileViewport, setIsMobileViewport] = useState(true);
   const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(
     null,
   );
@@ -192,6 +193,18 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const updateViewport = () => setIsMobileViewport(mobileQuery.matches);
+
+    updateViewport();
+    mobileQuery.addEventListener("change", updateViewport);
+
+    return () => {
+      mobileQuery.removeEventListener("change", updateViewport);
+    };
+  }, []);
+
+  useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
@@ -201,7 +214,11 @@ export default function Home() {
 
   useEffect(() => {
     const hero = document.querySelector<HTMLElement>("[data-hero-scroll]");
-    if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (
+      !hero ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(max-width: 767px)").matches
+    ) {
       return;
     }
 
@@ -381,6 +398,9 @@ export default function Home() {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const isTouchViewport = window.matchMedia(
+      "(hover: none), (pointer: coarse)",
+    ).matches;
 
     const setupPointerSpotlight = ({
       selector,
@@ -415,7 +435,7 @@ export default function Home() {
       };
 
       setCenter();
-      if (reduceMotion) return undefined;
+      if (reduceMotion || isTouchViewport) return undefined;
 
       const flushSpotlight = () => {
         section.style.setProperty(xProperty, nextX);
@@ -518,17 +538,21 @@ export default function Home() {
         className="hero-scroll-motion relative min-h-screen overflow-hidden bg-[#05030d] px-6 py-7 sm:px-10 lg:px-12 xl:px-14"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(88,28,135,0.48),transparent_28%),radial-gradient(circle_at_78%_18%,rgba(219,39,119,0.32),transparent_30%),radial-gradient(circle_at_72%_76%,rgba(37,99,235,0.32),transparent_35%),linear-gradient(135deg,#05030d_0%,#10051f_42%,#020617_100%)]" />
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/assets/brunoarts/brunoarts-hero-bg.png"
-          className="hero-motion-bg absolute inset-0 h-full w-full object-cover object-[68%_center] opacity-80 mix-blend-screen"
-        >
-          <source src="/videos/brunoarts-hero-video.mp4" type="video/mp4" />
-        </video>
+        {isMobileViewport ? (
+          <div className="hero-motion-bg absolute inset-0 h-full w-full bg-[url('/assets/brunoarts/brunoarts-hero-bg.png')] bg-cover bg-[68%_center] opacity-70 mix-blend-screen" />
+        ) : (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/assets/brunoarts/brunoarts-hero-bg.png"
+            className="hero-motion-bg absolute inset-0 h-full w-full object-cover object-[68%_center] opacity-80 mix-blend-screen"
+          >
+            <source src="/videos/brunoarts-hero-video.mp4" type="video/mp4" />
+          </video>
+        )}
         <div className="hero-motion-sheen absolute inset-y-[-20%] left-[18%] w-[36vw] rotate-12 bg-[linear-gradient(90deg,transparent,rgba(217,70,239,0.16),rgba(96,165,250,0.08),transparent)] blur-3xl" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#05030d_0%,rgba(5,3,13,0.92)_14%,rgba(5,3,13,0.58)_34%,rgba(5,3,13,0.12)_62%,rgba(5,3,13,0.34)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_45%,rgba(217,70,239,0.12),transparent_34%),radial-gradient(circle_at_84%_56%,rgba(59,130,246,0.18),transparent_42%)]" />
@@ -801,16 +825,20 @@ export default function Home() {
                     className="group/reels-preview relative flex h-full w-full overflow-hidden text-left"
                   >
                     <div className="absolute inset-x-0 bottom-0 h-[74%] overflow-hidden rounded-[8px]">
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                        className="h-full w-full scale-110 object-cover object-center opacity-34 blur-[5px] brightness-[0.52] saturate-110 transition duration-500 group-hover/reels-preview:scale-[1.15] group-hover/reels-preview:opacity-44"
-                      >
-                        <source src="/videos/portfolio/reels/reels-01.mp4" type="video/mp4" />
-                      </video>
+                      {isMobileViewport ? (
+                        <div className="h-full w-full scale-110 bg-[radial-gradient(circle_at_50%_38%,rgba(217,70,239,0.22),rgba(5,3,13,0.66)_54%,rgba(5,3,13,0.92)_100%)] opacity-80" />
+                      ) : (
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                          className="h-full w-full scale-110 object-cover object-center opacity-34 blur-[5px] brightness-[0.52] saturate-110 transition duration-500 group-hover/reels-preview:scale-[1.15] group-hover/reels-preview:opacity-44"
+                        >
+                          <source src="/videos/portfolio/reels/reels-01.mp4" type="video/mp4" />
+                        </video>
+                      )}
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,3,13,0.18)_0%,rgba(5,3,13,0.58)_52%,rgba(5,3,13,0.86)_100%),radial-gradient(circle_at_50%_52%,rgba(217,70,239,0.16),transparent_58%)]" />
                     </div>
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,3,13,0.46)_0%,transparent_50%,rgba(5,3,13,0.5)_100%)]" />
@@ -830,19 +858,23 @@ export default function Home() {
                     className="group/web-preview relative flex h-full w-full overflow-hidden text-left"
                   >
                     <div className="absolute inset-x-0 bottom-0 h-[74%] overflow-hidden rounded-[8px]">
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                        className="h-full w-full scale-110 object-cover object-center opacity-36 blur-[4px] brightness-[0.54] saturate-110 transition duration-500 group-hover/web-preview:scale-[1.14] group-hover/web-preview:opacity-46"
-                      >
-                        <source
-                          src="/videos/portfolio/webdesign/webdesign-01.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
+                      {isMobileViewport ? (
+                        <div className="h-full w-full scale-110 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(147,51,234,0.15),rgba(5,3,13,0.88))] opacity-80" />
+                      ) : (
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                          className="h-full w-full scale-110 object-cover object-center opacity-36 blur-[4px] brightness-[0.54] saturate-110 transition duration-500 group-hover/web-preview:scale-[1.14] group-hover/web-preview:opacity-46"
+                        >
+                          <source
+                            src="/videos/portfolio/webdesign/webdesign-01.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                      )}
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,3,13,0.22)_0%,rgba(5,3,13,0.56)_50%,rgba(5,3,13,0.86)_100%),radial-gradient(circle_at_50%_48%,rgba(147,51,234,0.16),transparent_58%)]" />
                     </div>
                     <span className="relative z-10 flex h-full flex-col justify-between">
@@ -1095,16 +1127,20 @@ export default function Home() {
       </section>
 
       <section id="pacotes" className="motion-section relative overflow-hidden bg-[#05030d] px-6 py-18 sm:px-10 sm:py-20 lg:px-16">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
-        >
-          <source src="/videos/brunoarts-packages-bg.mp4" type="video/mp4" />
-        </video>
+        {isMobileViewport ? (
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(147,51,234,0.18),transparent_34%),linear-gradient(180deg,rgba(5,3,13,0.82),rgba(5,3,13,0.94))]" />
+        ) : (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover opacity-30"
+          >
+            <source src="/videos/brunoarts-packages-bg.mp4" type="video/mp4" />
+          </video>
+        )}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,3,13,0.72)_0%,rgba(5,3,13,0.62)_42%,rgba(5,3,13,0.82)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(147,51,234,0.13),transparent_30%),radial-gradient(circle_at_18%_78%,rgba(59,130,246,0.08),transparent_30%),radial-gradient(circle_at_82%_70%,rgba(217,70,239,0.1),transparent_32%)]" />
         <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:36px_36px]" />
@@ -1122,11 +1158,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="motion-stagger mt-11 grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:items-center">
+          <div className="motion-stagger packages-track no-scrollbar mt-11 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-3 lg:items-center">
             {packages.map((item) => (
               <article
                 key={item.name}
-                className={`package-motion-card motion-card motion-reveal motion-reveal-scale group relative flex min-h-[500px] flex-col overflow-hidden rounded-[28px] border p-6 backdrop-blur-2xl transition duration-300 hover:-translate-y-1.5 sm:p-7 ${
+                className={`package-motion-card motion-card motion-reveal motion-reveal-scale group relative flex min-h-[455px] flex-[0_0_84vw] snap-center flex-col overflow-hidden rounded-[22px] border p-5 backdrop-blur-2xl transition duration-300 hover:-translate-y-1.5 sm:p-7 md:min-h-[500px] md:flex-auto md:rounded-[28px] ${
                   item.highlighted
                     ? "border-fuchsia-200/28 bg-white/[0.075] shadow-[0_0_58px_rgba(217,70,239,0.16)] lg:min-h-[535px] lg:scale-[1.015]"
                     : "border-white/12 bg-white/[0.05] shadow-[0_0_42px_rgba(88,28,135,0.12)] hover:border-fuchsia-200/24 hover:shadow-[0_0_54px_rgba(147,51,234,0.14)]"
